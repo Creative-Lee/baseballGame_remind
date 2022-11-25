@@ -1,6 +1,7 @@
 const BaseballGame = require('./BaseballGame.js');
 const Computer = require('./Computer.js');
 const InputView = require('./InputView.js');
+const Validation = require('./Validation.js');
 
 class GameController {
   #baseballGame;
@@ -13,7 +14,11 @@ class GameController {
   }
 
   #requestUserNumbers() {
-    InputView.requestUserNumbers((userNumbers) => {});
+    InputView.requestUserNumbers(this.#comparePhase.bind(this));
+  }
+
+  #comparePhase(userNumbers) {
+    Validation.validateUserNumbers(userNumbers);
   }
 }
 
