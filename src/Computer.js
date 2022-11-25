@@ -1,18 +1,8 @@
-const { Random } = require('@woowacourse/mission-utils');
-const { GAME_NUMBER } = require('./constants/condition.js');
-
 class Computer {
   #randomNumbers;
 
-  initRandomNumbers() {
-    const numbers = new Set();
-
-    while (numbers.size !== GAME_NUMBER.length) {
-      const randomNumber = Random.pickNumberInRange(GAME_NUMBER.minRange, GAME_NUMBER.maxRange);
-      numbers.add(randomNumber);
-    }
-
-    this.#randomNumbers = [...numbers];
+  setRandomNumbers(randomNumbers) {
+    this.#randomNumbers = randomNumbers;
   }
 
   getStrikeCount(userNumbers) {

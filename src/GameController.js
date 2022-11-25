@@ -3,12 +3,15 @@ const Computer = require('./Computer.js');
 const InputView = require('./InputView.js');
 const OutputView = require('./OutputView.js');
 const Validation = require('./Validation.js');
+const randomNumberMaker = require('./utils/randomNumberMaker.js');
 
 class GameController {
   #baseballGame;
 
   start() {
     const computer = new Computer();
+    computer.setRandomNumbers(randomNumberMaker());
+
     this.#baseballGame = new BaseballGame(computer);
 
     this.#requestUserNumbers();
