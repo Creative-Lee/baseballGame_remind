@@ -17,15 +17,13 @@ class Computer {
 
   getStrikeCount(userNumbers) {
     return this.#randomNumbers.filter((randomNumber, index) => {
-      return randomNumber[index] === userNumbers[index];
+      return randomNumber === userNumbers[index];
     }).length;
   }
 
   getBallCount(userNumbers) {
     return this.#randomNumbers.filter((randomNumber, index) => {
-      return (
-        this.#randomNumbers.includes(randomNumber) && userNumbers[index] !== userNumbers[index]
-      );
+      return userNumbers.includes(randomNumber) && userNumbers[index] !== randomNumber;
     }).length;
   }
 }
