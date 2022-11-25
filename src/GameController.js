@@ -19,6 +19,8 @@ class GameController {
 
   #comparePhase(userNumbers) {
     Validation.validateUserNumbers(userNumbers);
+
+    this.#baseballGame.getCompareResult(userNumbers);
   }
 }
 

@@ -13,6 +13,12 @@ class Computer {
 
     this.#randomNumbers = [...numbers];
   }
+
+  getStrikeCount(userNumbers) {
+    return this.#randomNumbers.filter((randomNumber, index) => {
+      return randomNumber[index] === userNumbers[index];
+    }).length;
+  }
 }
 
 module.exports = Computer;
