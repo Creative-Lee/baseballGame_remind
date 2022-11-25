@@ -38,14 +38,14 @@ class Validation {
   }
 
   static #hasOnlyValidRangeNumber(input) {
-    input
+    return input
       .split('')
       .map((eachLetter) => parseInt(eachLetter))
       .every(Validation.#isValidRangeNumber);
   }
 
   static #isValidRangeNumber(number) {
-    return GAME_NUMBER.minRange < number && number < GAME_NUMBER.maxRange;
+    return GAME_NUMBER.minRange <= number && number <= GAME_NUMBER.maxRange;
   }
 }
 
