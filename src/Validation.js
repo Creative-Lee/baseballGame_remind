@@ -7,6 +7,10 @@ class Validation {
     if (this.#hasValidLength(input)) {
       throw new Error('[ERROR] 숫자의 길이가 올바르지 않습니다.');
     }
+
+    if (this.#hasOnlyUniqueNumber(input)) {
+      throw new Error('[ERROR] 중복된 숫자가 입력되었습니다.');
+    }
   }
 
   static #hasOnlyNumber(input) {
@@ -18,6 +22,12 @@ class Validation {
 
   static #hasValidLength(input) {
     return input.length === 3;
+  }
+
+  static #hasOnlyUniqueNumber(input) {
+    const duplicateCheck = new Set(input);
+
+    return duplicateCheck.length === input.length;
   }
 }
 
