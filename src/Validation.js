@@ -1,4 +1,5 @@
 const { INPUT_ERROR_MSG } = require('../src/constants/message.js');
+const { GAME_NUMBER } = require('../src/constants/condition.js');
 
 class Validation {
   static validateUserNumbers(input) {
@@ -27,7 +28,7 @@ class Validation {
   }
 
   static #hasValidLength(input) {
-    return input.length === 3;
+    return input.length === GAME_NUMBER.length;
   }
 
   static #hasOnlyUniqueNumber(input) {
@@ -44,7 +45,7 @@ class Validation {
   }
 
   static #isValidRangeNumber(number) {
-    return 1 < number && number < 9;
+    return GAME_NUMBER.minRange < number && number < GAME_NUMBER.maxRange;
   }
 }
 
