@@ -34,7 +34,7 @@ class Validation {
   static #hasOnlyUniqueNumber(input) {
     const duplicateCheck = new Set(input);
 
-    return duplicateCheck.length === input.length;
+    return duplicateCheck.size === input.length;
   }
 
   static #hasOnlyValidRangeNumber(input) {
