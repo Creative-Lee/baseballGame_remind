@@ -8,7 +8,10 @@ class BaseballGame {
   getCompareResult(userNumbers) {
     const userNumberArr = userNumbers.split('').map(Number);
 
-    this.#computer.getStrikeCount(userNumbers);
+    const strikeCount = this.#computer.getStrikeCount(userNumbers);
+    const ballCount = this.#computer.getBallCount(userNumbers);
+
+    return { strikeCount, ballCount };
   }
 }
 

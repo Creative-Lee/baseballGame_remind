@@ -19,6 +19,14 @@ class Computer {
       return randomNumber[index] === userNumbers[index];
     }).length;
   }
+
+  getBallCount(userNumbers) {
+    return this.#randomNumbers.filter((randomNumber, index) => {
+      return (
+        this.#randomNumbers.includes(randomNumber) && userNumbers[index] !== userNumbers[index]
+      );
+    }).length;
+  }
 }
 
 module.exports = Computer;
