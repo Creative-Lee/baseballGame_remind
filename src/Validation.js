@@ -1,18 +1,18 @@
 class Validation {
   static validateUserNumbers(input) {
-    if (!this.#hasOnlyNumber(input)) {
+    if (!Validation.#hasOnlyNumber(input)) {
       throw new Error('[ERROR] 숫자가 아닌 문자가 포함되었습니다.');
     }
 
-    if (!this.#hasValidLength(input)) {
+    if (!Validation.#hasValidLength(input)) {
       throw new Error('[ERROR] 숫자의 길이가 올바르지 않습니다.');
     }
 
-    if (!this.#hasOnlyUniqueNumber(input)) {
+    if (!Validation.#hasOnlyUniqueNumber(input)) {
       throw new Error('[ERROR] 중복된 숫자가 입력되었습니다.');
     }
 
-    if (!this.#hasOnlyValidRangeNumber(input)) {
+    if (!Validation.#hasOnlyValidRangeNumber(input)) {
       throw new Error('[ERROR] 숫자의 범위가 올바르지 않습니다.');
     }
   }
