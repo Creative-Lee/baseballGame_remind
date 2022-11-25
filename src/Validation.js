@@ -1,19 +1,21 @@
+const { INPUT_ERROR_MSG } = require('../src/constants/message.js');
+
 class Validation {
   static validateUserNumbers(input) {
     if (!Validation.#hasOnlyNumber(input)) {
-      throw new Error('[ERROR] 숫자가 아닌 문자가 포함되었습니다.');
+      throw new Error(INPUT_ERROR_MSG.invalidType);
     }
 
     if (!Validation.#hasValidLength(input)) {
-      throw new Error('[ERROR] 숫자의 길이가 올바르지 않습니다.');
+      throw new Error(INPUT_ERROR_MSG.invalidLength);
     }
 
     if (!Validation.#hasOnlyUniqueNumber(input)) {
-      throw new Error('[ERROR] 중복된 숫자가 입력되었습니다.');
+      throw new Error(INPUT_ERROR_MSG.duplicated);
     }
 
     if (!Validation.#hasOnlyValidRangeNumber(input)) {
-      throw new Error('[ERROR] 숫자의 범위가 올바르지 않습니다.');
+      throw new Error(INPUT_ERROR_MSG.invalidRange);
     }
   }
 
