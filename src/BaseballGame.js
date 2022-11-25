@@ -3,6 +3,7 @@ class BaseballGame {
 
   constructor(computer) {
     this.#computer = computer;
+    this.#computer.initRandomNumbers();
   }
 
   getCompareResult(userNumbers) {
