@@ -44,7 +44,11 @@ class GameController {
 
   #endPhase() {
     OutputView.printGameEndMsg();
+
+    InputView.requestRestartCommand(this.#restartPhase.bind(this));
   }
+
+  #restartPhase(command) {}
 }
 
 module.exports = GameController;
