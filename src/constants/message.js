@@ -5,6 +5,11 @@ const INPUT_ERROR_MSG = {
   invalidRange: '[ERROR] 숫자의 범위가 올바르지 않습니다.',
 };
 
+const REQUEST_MSG = {
+  userNumber: '숫자를 입력해주세요',
+  restart: '게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.',
+};
+
 const GAME_END_MSG = '3개의 숫자를 모두 맞히셨습니다! 게임 종료';
 
-module.exports = { INPUT_ERROR_MSG, GAME_END_MSG };
+module.exports = { INPUT_ERROR_MSG, REQUEST_MSG, GAME_END_MSG };
