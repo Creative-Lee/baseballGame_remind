@@ -4,6 +4,7 @@ const InputView = require('./InputView.js');
 const OutputView = require('./OutputView.js');
 const Validation = require('./Validation.js');
 const randomNumberMaker = require('./utils/randomNumberMaker.js');
+const { GAME_NUMBER } = require('./constants/condition.js');
 
 class GameController {
   #baseballGame;
@@ -26,6 +27,17 @@ class GameController {
 
     const compareResult = this.#baseballGame.getCompareResult(userNumbers);
     OutputView.printResult(compareResult);
+
+    this.#retryPhase(compareResult);
+  }
+
+  #retryPhase({ strikeCount }) {
+    const isEnd = strikeCount === GAME_NUMBER.length;
+
+    if (!isEnd) {
+      this.#requestUserNumbers();
+      return;
+    }
   }
 }
 
