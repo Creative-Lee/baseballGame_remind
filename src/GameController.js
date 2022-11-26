@@ -38,6 +38,12 @@ class GameController {
       this.#requestUserNumbers();
       return;
     }
+
+    this.#endPhase();
+  }
+
+  #endPhase() {
+    OutputView.printGameEndMsg();
   }
 }
 
