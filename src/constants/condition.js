@@ -4,6 +4,12 @@ const GAME_NUMBER = {
   maxRange: 9,
 };
 
+const COMMAND = {
+  restart: '1',
+  end: '2',
+};
+
 module.exports = {
   GAME_NUMBER,
+  COMMAND,
 };

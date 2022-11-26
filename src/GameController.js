@@ -4,7 +4,7 @@ const InputView = require('./InputView.js');
 const OutputView = require('./OutputView.js');
 const Validation = require('./Validation.js');
 const randomNumberMaker = require('./utils/randomNumberMaker.js');
-const { GAME_NUMBER } = require('./constants/condition.js');
+const { GAME_NUMBER, COMMAND } = require('./constants/condition.js');
 const { Console } = require('@woowacourse/mission-utils');
 
 class GameController {
@@ -50,12 +50,12 @@ class GameController {
   }
 
   #restartPhase(command) {
-    if (command === '1') {
+    if (command === COMMAND.restart) {
       this.start();
       return;
     }
 
-    if (command === '2') {
+    if (command === COMMAND.end) {
       Console.close();
     }
   }
