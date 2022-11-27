@@ -1,7 +1,7 @@
 class Computer {
   #randomNumbers;
 
-  setRandomNumbers(randomNumbers) {
+  constructor(randomNumbers) {
     this.#randomNumbers = randomNumbers;
   }
 

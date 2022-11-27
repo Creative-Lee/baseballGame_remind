@@ -11,8 +11,8 @@ class GameController {
   #baseballGame;
 
   start() {
-    const computer = new Computer();
-    computer.setRandomNumbers(randomNumberMaker());
+    const randomNumbers = randomNumberMaker();
+    const computer = new Computer(randomNumbers);
 
     this.#baseballGame = new BaseballGame(computer);
 
