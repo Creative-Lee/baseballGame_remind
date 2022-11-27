@@ -1,4 +1,5 @@
 const Validation = require('../src/Validation.js');
+const { INPUT_ERROR_MSG } = require('../src/constants/message.js');
 
 describe('Validation 클래스 테스트', () => {
   const invalidType = ['asd', '   ', '!  '];
@@ -9,7 +10,7 @@ describe('Validation 클래스 테스트', () => {
   test.each(invalidType)('숫자 외의 값이 포함되어 있으면 에러가 발생한다.', (input) => {
     expect(() => {
       Validation.validateUserNumbers(input);
-    }).toThrow();
+    }).toThrow(INPUT_ERROR_MSG.invalidType);
   });
 
   test.each(invalidLength)(
@@ -17,19 +18,19 @@ describe('Validation 클래스 테스트', () => {
     (input) => {
       expect(() => {
         Validation.validateUserNumbers(input);
-      }).toThrow();
+      }).toThrow(INPUT_ERROR_MSG.invalidLength);
     }
   );
 
   test.each(duplicatedNumber)('중복된 숫자가 있으면 에러가 발생한다.', (input) => {
     expect(() => {
       Validation.validateUserNumbers(input);
-    }).toThrow();
+    }).toThrow(INPUT_ERROR_MSG.duplicated);
   });
 
   test.each(invalidRange)('숫자의 범위가 지정된 조건을 벗어나면 에러가 발생한다.', (input) => {
     expect(() => {
       Validation.validateUserNumbers(input);
-    }).toThrow();
+    }).toThrow(INPUT_ERROR_MSG.invalidRange);
   });
 });
