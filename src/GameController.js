@@ -40,12 +40,11 @@ class GameController {
       return;
     }
 
-    this.#endPhase();
+    OutputView.printGameEndMsg();
+    this.#requestRestartCommand();
   }
 
-  #endPhase() {
-    OutputView.printGameEndMsg();
-
+  #requestRestartCommand() {
     InputView.requestRestartCommand(this.#restartPhase.bind(this));
   }
 
