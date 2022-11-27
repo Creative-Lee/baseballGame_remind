@@ -1,10 +1,10 @@
 const { Console } = require('@woowacourse/mission-utils');
-const TemplateMaker = require('./utils/TemplateMaker.js');
+const resultTemplateMaker = require('./utils/resultTemplateMaker.js');
 const { GAME_END_MSG } = require('./constants/message.js');
 
 const OutputView = {
   printResult(result) {
-    const resultTemplate = TemplateMaker.getResultTemplate(result);
+    const resultTemplate = resultTemplateMaker(result);
 
     Console.print(resultTemplate);
   },
