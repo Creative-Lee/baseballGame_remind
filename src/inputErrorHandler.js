@@ -9,3 +9,5 @@ const inputErrorHandler = (valdateFunc, input) => {
     return false;
   }
 };
+
+module.exports = inputErrorHandler;

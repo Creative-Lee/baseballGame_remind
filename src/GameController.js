@@ -6,6 +6,7 @@ const Validation = require('./Validation.js');
 const randomNumberMaker = require('./utils/randomNumberMaker.js');
 const { GAME_NUMBER, COMMAND } = require('./constants/condition.js');
 const { Console } = require('@woowacourse/mission-utils');
+const inputErrorHandler = require('./inputErrorHandler.js');
 
 class GameController {
   #baseballGame;
@@ -20,12 +21,19 @@ class GameController {
   }
 
   #requestUserNumbers() {
-    InputView.requestUserNumbers(this.#comparePhase.bind(this));
+    InputView.requestUserNumbers((userNumbers) => {
+      const isValidUserNumbers = inputErrorHandler(Validation.validateUserNumbers, userNumbers);
+
+      if (!isValidUserNumbers) {
+        this.#requestUserNumbers();
+        return;
+      }
+
+      this.#comparePhase(userNumbers);
+    });
   }
 
   #comparePhase(userNumbers) {
-    Validation.validateUserNumbers(userNumbers);
-
     const compareResult = this.#baseballGame.getCompareResult(userNumbers);
     OutputView.printResult(compareResult);
 
@@ -54,9 +62,7 @@ class GameController {
       return;
     }
 
-    if (command === COMMAND.end) {
-      Console.close();
-    }
+    Console.close();
   }
 }
 
